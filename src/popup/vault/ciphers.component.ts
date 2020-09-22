@@ -35,6 +35,7 @@ import { BroadcasterService } from 'jslib/angular/services/broadcaster.service';
 import { CiphersComponent as BaseCiphersComponent } from 'jslib/angular/components/ciphers.component';
 
 import { PopupUtilsService } from '../services/popup-utils.service';
+import { CipherService } from 'jslib/abstractions';
 
 const ComponentId = 'CiphersComponent';
 
@@ -62,7 +63,8 @@ export class CiphersComponent extends BaseCiphersComponent implements OnInit, On
         private changeDetectorRef: ChangeDetectorRef, private stateService: StateService,
         private popupUtils: PopupUtilsService, private i18nService: I18nService,
         private folderService: FolderService, private collectionService: CollectionService,
-        private analytics: Angulartics2, private platformUtilsService: PlatformUtilsService) {
+        private analytics: Angulartics2, private platformUtilsService: PlatformUtilsService,
+        private ciphersService: CipherService) {
         super(searchService);
         this.pageSize = 100;
         this.applySavedState = (window as any).previousPopupUrl != null &&
@@ -195,6 +197,7 @@ export class CiphersComponent extends BaseCiphersComponent implements OnInit, On
         }
         this.preventSelected = true;
         this.analytics.eventTrack.next({ action: 'Launched URI From Listing' });
+        await this.ciphersService.updateLastLaunchedDate(cipher.id);
         BrowserApi.createNewTab(cipher.login.launchUri);
         if (this.popupUtils.inPopup(window)) {
             BrowserApi.closePopup(window);
