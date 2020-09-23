@@ -193,7 +193,7 @@
                 </div>
                 <div class="action-buttons">
                     <a class="row-btn" href="#" appStopClick appA11yTitle="{{'launch' | i18n}}" *ngIf="u.canLaunch"
-                        (click)="launch(u)">
+                        (click)="launch(u, cipher.id)">
                         <i class="fa fa-lg fa-share-square-o" aria-hidden="true"></i>
                     </a>
                     <a class="row-btn" href="#" appStopClick appA11yTitle="{{'copyUri' | i18n}}"
