@@ -5,7 +5,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ToasterModule } from 'angular2-toaster';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ServicesModule } from './services/services.module';
@@ -73,6 +73,7 @@ import { I18nPipe } from 'jslib/angular/pipes/i18n.pipe';
 import { SearchCiphersPipe } from 'jslib/angular/pipes/search-ciphers.pipe';
 
 import { ActionButtonsComponent } from './components/action-buttons.component';
+import { CiphersListScrollComponent } from './components/ciphers-list-scroll.component';
 import { CiphersListComponent } from './components/ciphers-list.component';
 import { PopOutComponent } from './components/pop-out.component';
 import { SendListComponent } from './components/send-list.component';
@@ -172,8 +173,8 @@ registerLocaleData(localeZhTw, 'zh-TW');
             },
         }),
         ToasterModule.forRoot(),
-        InfiniteScrollModule,
         DragDropModule,
+        VirtualScrollerModule,
     ],
     declarations: [
         A11yTitleDirective,
@@ -188,6 +189,7 @@ registerLocaleData(localeZhTw, 'zh-TW');
         CalloutComponent,
         CiphersComponent,
         CiphersListComponent,
+        CiphersListScrollComponent,
         CollectionsComponent,
         ColorPasswordPipe,
         CurrentTabComponent,
