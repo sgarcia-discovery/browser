@@ -5,8 +5,6 @@ import {
     Output,
 } from '@angular/core';
 
-import { CipherType } from 'jslib/enums/cipherType';
-
 import { CipherView } from 'jslib/models/view/cipherView';
 
 @Component({
@@ -21,7 +19,6 @@ export class CiphersListComponent {
     @Input() showView = false;
     @Input() title: string;
 
-    cipherType = CipherType;
     parentScroll: Element;
     containerHeight: number;
     itemHeight: number = 45;    // Height in px of each cipher row
