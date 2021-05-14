@@ -22,6 +22,17 @@ export class CiphersListComponent {
     @Input() title: string;
 
     cipherType = CipherType;
+    parentScroll: Element;
+    containerHeight: number;
+    itemHeight: number = 45;    // Height in px of each cipher row
+
+    constructor() {
+        this.parentScroll = document.querySelector("content");
+    }
+
+    ngOnChanges() {
+        this.containerHeight = this.ciphers != null ? this.itemHeight * this.ciphers.length : 0;
+    }
 
     selectCipher(c: CipherView) {
         this.onSelected.emit(c);

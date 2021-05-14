@@ -69,9 +69,9 @@
                 <span class="flex-right">{{isSearching() ? filteredCiphers.length : ciphers.length}}</span>
             </div>
             <div class="box-content">
-                <app-ciphers-list-scroll [ciphers]="ciphers" title="{{'viewItem' | i18n}}"
+                <app-ciphers-list [ciphers]="ciphers" title="{{'viewItem' | i18n}}"
                     (onSelected)="selectCipher($event)" (launchEvent)="launchCipher($event)">
-                </app-ciphers-list-scroll>
+                </app-ciphers-list>
             </div>
         </div>
     </ng-container>
