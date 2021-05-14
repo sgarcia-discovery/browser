@@ -45,8 +45,7 @@
             </div>
             <div class="box-content">
                 <app-ciphers-list [ciphers]="cardCiphers" title="{{'autoFill' | i18n}}" [showView]="true"
-                    (onSelected)="fillCipher($event)" (onView)="viewCipher($event)">
-                </app-ciphers-list>
+                    (onSelected)="fillCipher($event)" (onView)="viewCipher($event)"></app-ciphers-list>
             </div>
         </div>
         <div class="box list" *ngIf="identityCiphers && identityCiphers.length">
@@ -56,8 +55,7 @@
             </div>
             <div class="box-content">
                 <app-ciphers-list [ciphers]="identityCiphers" title="{{'autoFill' | i18n}}" [showView]="true"
-                    (onSelected)="fillCipher($event)" (onView)="viewCipher($event)">
-                </app-ciphers-list>
+                    (onSelected)="fillCipher($event)" (onView)="viewCipher($event)"></app-ciphers-list>
             </div>
         </div>
     </ng-container>
