@@ -1,5 +1,3 @@
-import { Angulartics2 } from 'angulartics2';
-
 import { Location } from '@angular/common';
 import {
     ChangeDetectorRef,
@@ -63,8 +61,7 @@ export class CiphersComponent extends BaseCiphersComponent implements OnInit, On
         private changeDetectorRef: ChangeDetectorRef, private stateService: StateService,
         private popupUtils: PopupUtilsService, private i18nService: I18nService,
         private folderService: FolderService, private collectionService: CollectionService,
-        private analytics: Angulartics2, private platformUtilsService: PlatformUtilsService,
-        private cipherService: CipherService) {
+        private platformUtilsService: PlatformUtilsService, private cipherService: CipherService) {
         super(searchService);
         this.applySavedState = (window as any).previousPopupUrl != null &&
             !(window as any).previousPopupUrl.startsWith('/ciphers');
@@ -195,7 +192,6 @@ export class CiphersComponent extends BaseCiphersComponent implements OnInit, On
             window.clearTimeout(this.selectedTimeout);
         }
         this.preventSelected = true;
-        this.analytics.eventTrack.next({ action: 'Launched URI From Listing' });
         await this.cipherService.updateLastLaunchedDate(cipher.id);
         BrowserApi.createNewTab(cipher.login.launchUri);
         if (this.popupUtils.inPopup(window)) {
